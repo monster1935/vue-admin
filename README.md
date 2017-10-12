@@ -3,9 +3,9 @@
 基于vue、element-ui的后台管理系统demo，主要是做了动态操作tabs的实践。
 效果图：
 
-![](./static/vue-admin.png)
+![](https://raw.githubusercontent.com/monster1935/vue-admin/master/static/vue-admin.png)
 
-在线demo：[online display](https://raw.githubusercontent.com/monster1935/vue-admin/master/static/vue-admin.png)
+在线demo：[online display](http://www.monster1935.site/vue-admin/#/)
 
 动态tabs操作的思路：
 
