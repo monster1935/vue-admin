@@ -30,18 +30,18 @@
       }
     },
     mounted () {
-      // 设置初始路由
-      this.$store.commit('add_tabs', {route: this.$route.path , name: this.$route.name });
+      // 刷新时以当前路由做为tab加入tabs
+      if (this.$route.path !== '/') {
+        this.$store.commit('add_tabs', {route: '/', name: '首页'});
+        this.$store.commit('add_tabs', {route: this.$route.path , name: this.$route.name });
+      } else {
+        this.$store.commit('add_tabs', {route: '/', name: '首页'});
+      }
       this.$store.commit('set_active_index', this.$route.path);
     },
     computed: {
       options () {
         return this.$store.state.options;
-      }
-    },
-    watch: {
-      options () {
-        console.log(this.options);
       }
     }
   }

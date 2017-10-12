@@ -40,10 +40,13 @@ export default {
     AppNav
   },
   methods: {
+    // tab切换时，动态的切换路由
     tabClick () {
       this.$router.push({path: this.activeIndex});
     },
+
     tabRemove (targetName) {
+      // 首页不可删除
       if(targetName == '/') {
         return;
       }
