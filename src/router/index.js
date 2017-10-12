@@ -44,6 +44,10 @@ export default new Router({
       path: '/feedback',
       name: '意见反馈',
       component: Template
+    },
+    {
+      path: '*',
+      redirect: '/'
     }
   ]
 })
