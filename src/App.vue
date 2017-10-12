@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="app-header">
-      <div class="title">Vue动态多tabsDemo</div>
+      <div class="title">后台管理系统</div>
     </div>
     <div class="app-content">
       <div class="app-nav">
@@ -106,6 +106,7 @@ html, body {
   display: flex;
   flex-flow: column;
   color: #fff;
+  overflow: hidden;
   .app-header {
     flex: 0 0 60px;
     background: #324057;
@@ -126,6 +127,7 @@ html, body {
     }
     .app-wrap {
       flex: 1;
+      overflow: auto;
     }
   }
 }

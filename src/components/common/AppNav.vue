@@ -6,7 +6,7 @@
       <el-menu-item
         v-for="menu in menus"
         :index="menu.route"
-        @click="onMenuClick(menu)">
+        :key="menu.route">
         <i class="el-icon-menu"></i>{{menu.name}}
       </el-menu-item>
     </el-menu>
@@ -33,26 +33,6 @@
       // 设置初始路由
       this.$store.commit('add_tabs', {route: this.$route.path , name: this.$route.name });
       this.$store.commit('set_active_index', this.$route.path);
-    },
-    methods: {
-      onMenuClick (menu) {
-        let flag = false;
-        for (let option of this.options) {
-          if (option.name === menu.name) {
-            // 设置当前tab为激活的tab
-            flag = true;
-            this.$store.commit('set_active_index', menu.route);
-            break;
-          }
-        }
-        // 未曾添加过的话添加到tabs列表中
-        if (!flag) {
-          this.$store.commit('add_tabs', menu);
-          // 设置当前激活的tab
-          this.$store.commit('set_active_index', menu.route);
-        }
-
-      }
     },
     computed: {
       options () {
