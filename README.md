@@ -5,7 +5,7 @@
 
 ![](https://raw.githubusercontent.com/monster1935/vue-admin/master/static/vue-admin.png)
 
-在线demo：[online display](http://www.monster1935.site/vue-admin/#/)
+在线demo：[online display](https://monster1935.github.io/vue-admin/#/)
 
 动态tabs操作的思路：
 
