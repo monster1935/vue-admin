@@ -10,7 +10,8 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
       options: [],
-      activeIndex: '/user'
+      activeIndex: '/user',
+      userInfo: {}
   },
   mutations: {
     // 添加tabs
@@ -28,8 +29,13 @@ const store = new Vuex.Store({
       }
       this.state.options.splice(index, 1);
     },
+    // 设置当前激活的tab
     set_active_index (state, index) {
       this.state.activeIndex = index;
+    },
+    // 设置详情信息
+    save_detail_info (state, info) {
+      this.state.userInfo = info;
     }
   }
 });

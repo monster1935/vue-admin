@@ -1,7 +1,7 @@
 <!-- 模板组件，用于模拟不同路由下的组件显示 -->
 <template>
   <div class="router-template">
-    <div class="content-wrap">
+    <div class="template-wrap">
       {{$route.name}}
     </div>
   </div>
@@ -12,7 +12,6 @@
     data () {
       return {};
     }
-
   }
 </script>
 <style>
@@ -22,7 +21,7 @@
     font-weight: 700;
     height: 100%;
   }
-  .content-wrap {
+  .template-wrap {
     height: 100%;
     display: flex;
     flex-flow: column;

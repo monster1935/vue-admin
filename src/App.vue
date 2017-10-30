@@ -12,7 +12,7 @@
         <div class="template-tabs">
           <el-tabs
             v-model="activeIndex"
-            type="card"
+            type="border-card"
             closable
             @tab-click="tabClick"
             v-if="options.length"
@@ -25,7 +25,9 @@
             </el-tab-pane>
           </el-tabs>
         </div>
-        <router-view/>
+        <div class="content-wrap">
+          <router-view/>
+        </div>
       </div>
     </div>
 
@@ -41,10 +43,14 @@ export default {
   },
   methods: {
     // tab切换时，动态的切换路由
-    tabClick () {
-      this.$router.push({path: this.activeIndex});
+    tabClick (tab) {
+      let path = this.activeIndex;
+      // 用户详情页的时候，对应了二级路由，需要拼接添加第二级路由
+      if (this.activeIndex === '/userInfo') {
+          path = this.activeIndex + '/' + this.$store.state.userInfo.name;
+      }
+      this.$router.push({path: path});
     },
-
     tabRemove (targetName) {
       // 首页不可删除
       if(targetName == '/') {
@@ -81,13 +87,13 @@ export default {
       for (let option of this.options ) {
         if (option.name === to.name) {
           flag = true;
-          this.$store.commit('set_active_index', to.path);
+          this.$store.commit('set_active_index', '/' + to.path.split('/')[1]);
           break
         }
       }
       if (!flag) {
-        this.$store.commit('add_tabs', {route: to.path, name: to.name});
-        this.$store.commit('set_active_index', to.path);
+        this.$store.commit('add_tabs', {route: '/' + to.path.split('/')[1], name: to.name});
+        this.$store.commit('set_active_index', '/' + to.path.split('/')[1]);
       }
     }
   }
@@ -101,6 +107,10 @@ html, body {
   margin: 0;
   padding: 0;
 }
+.el-tabs--border-card {
+    box-shadow: none;
+    border-bottom: none;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -108,9 +118,9 @@ html, body {
   height: 100%;
   display: flex;
   flex-flow: column;
-  color: #fff;
   overflow: hidden;
   .app-header {
+    color: #fff;
     flex: 0 0 60px;
     background: #324057;
     height: 60px;
@@ -130,7 +140,14 @@ html, body {
     }
     .app-wrap {
       flex: 1;
+      padding: 10px 20px;
       overflow: auto;
+      .content-wrap {
+        height: 90%;
+        border: 1px solid #d1dbe5;
+        border-top: none;
+        padding: 0 20px;
+      }
     }
   }
 }

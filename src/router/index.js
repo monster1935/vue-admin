@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Template from '@/components/Template'
+import ElementTable from '@/components/ElementTable'
+import DetailInfo from '@/components/DetailInfo'
 Vue.use(Router)
 
 export default new Router({
@@ -13,7 +15,12 @@ export default new Router({
     {
       path: '/user',
       name: '用户管理',
-      component: Template
+      component: ElementTable,
+    },
+    {
+        path: '/userInfo/:id',
+        name: '用户详情页',
+        component: DetailInfo
     },
     {
       path: '/psd',
