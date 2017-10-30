@@ -107,10 +107,6 @@ html, body {
   margin: 0;
   padding: 0;
 }
-.el-tabs--border-card {
-    box-shadow: none;
-    border-bottom: none;
-}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
